@@ -1,14 +1,14 @@
 import { response } from 'express';
 import { getConnection } from '../database/connection';
 import { queries } from '../database/querys';
-//import { decodeCP1252 } from '../helpers/userPassword';
-// = require('windows-1252');
+import { encryptext, decryptext } from '../middlewares/userPassword';
+
 
 export const userLogin = async(req, res = response) => {
-        console.log(req)
+
     try {
 
-        const { username, password } = req.body;
+        const { username, password:strText } = req.body;
 
         const pool = await getConnection();
     
@@ -27,9 +27,10 @@ export const userLogin = async(req, res = response) => {
 
         if ( pass.length ) {
 
-            const text = 1//decodeCP1252(password);    
+            const passInput = encryptext(strText);
+            const passDB = decryptext(pass);
 
-            if ( text !== pass ) {
+            if ( JSON.stringify(passInput) !== JSON.stringify(passDB)) {
                 return res.status(500).json({
                     ok: false,
                     msg: 'Contraseña incorrecta'
@@ -58,10 +59,3 @@ export const userToken = (req, res = response) => {
         msg: 'renew'
     })
 }
-
-
-//console.log(decodeCP1252('euge2504'));
-
-//const encodedData = windows1252.encode();
-
-//console.log(encodedData)
