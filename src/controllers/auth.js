@@ -2,7 +2,7 @@ import { response } from 'express';
 import { getConnection } from '../database/connection';
 import { queries } from '../database/querys';
 import { encryptext, decryptext } from '../middlewares/userPassword';
-
+import { generateJWT } from '../helpers/jwt';
 
 export const userLogin = async(req, res = response) => {
 
@@ -35,12 +35,15 @@ export const userLogin = async(req, res = response) => {
                     ok: false,
                     msg: 'Contraseña incorrecta'
                 });
-            } else {
-                res.status(200).json({
-                    ok: true,
-                    msg: 'Contraseña Correcta'
-                });
             }
+            
+            const token = await generateJWT(username);
+
+            res.status(200).json({
+                ok: true,
+                name : username,
+                token
+            });         
         }
         
     } catch (error) {
