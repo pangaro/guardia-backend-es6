@@ -7,6 +7,7 @@ import category from "./routes/category";
 import service from './routes/service';
 import holiday from './routes/holiday';
 import presentatitonDay from './routes/presentatitonDay';
+import categoryAmount from './routes/categoryAmount'
 import config from "./config";
 
 
@@ -27,5 +28,6 @@ app.use("/api", category);
 app.use("/api", service);
 app.use("/api", holiday);
 app.use("/api", presentatitonDay);
+app.use("/api", categoryAmount);
 
 export default app;

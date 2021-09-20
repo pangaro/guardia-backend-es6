@@ -4,7 +4,9 @@ import { queries } from '../database/querys';
 
 
 export const presentationDayGetAll = async (req, res = response) => {
+
   try {
+
       const pool = await getConnection();
   
       const result = await pool.request()
@@ -16,6 +18,7 @@ export const presentationDayGetAll = async (req, res = response) => {
           ok: true,
           recordset,
       });
+
   } catch (error) {
       console.log(error);
       res.status(500).json({
@@ -28,6 +31,7 @@ export const presentationDayGetAll = async (req, res = response) => {
 export const presentationDayUpdateById = async(req, res = response) => {
 
   try {
+      
       const { diaInicio, diaFin } = req.body;
 
       const { id } = req.params;

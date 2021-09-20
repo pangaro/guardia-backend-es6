@@ -1,10 +1,18 @@
 export const queries = {
-  /////CATEGORIAS////////////////
+  /////Categorias////////////////
   categoryAddNew: 'SP_GUA_GuadiaCategoria_Alta',
   categoryGetById: 'SP_GUA_GuadiaCategoria_Cons',
   categoryGetAll: 'SP_GUA_GuadiaCategoria_Cons',
   CategoryUpdateById: 'SP_GUA_GuadiaCategoria_Modi',
   categoryDeleteById: 'SP_GUA_GuadiaCategoria_Baja',
+
+
+  /////Categorias - Montos////////////////
+  categoryAmountAddNew: 'SP_GUA_CategoriaMontos_Alta',
+  //categoryAmountGetById: 'SP_GUA_CategoriaMontos_Cons',
+  categoryAmountGetAll: 'SP_GUA_CategoriaMontos_Cons',
+  CategoryAmountUpdateById: 'SP_GUA_CategoriaMontos_modi',
+  categoryAmountDeleteById: 'SP_GUA_CategoriaMontos_baja',
 
   /////Login////////////////
   userValidate: 'GUA_USU_ValidarUsuario_Cons_sp',

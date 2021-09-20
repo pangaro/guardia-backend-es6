@@ -5,7 +5,9 @@ import { validatorService } from '../middlewares/validatorService'
 
 
 export const serviceGetAll = async (req, res = response) => {
+
   try {
+
       const pool = await getConnection();
   
       const result = await pool.request()
@@ -17,6 +19,7 @@ export const serviceGetAll = async (req, res = response) => {
           ok: true,
           recordset,
       });
+
   } catch (error) {
       console.log(error);
       res.status(500).json({
@@ -63,6 +66,7 @@ export const categoryGetId = async(req, res = response) => {
 export const serviceAddNew = async(req, res = response) => {
 
   try {
+
       const { servicio, servicioDependenciaID, sinCronograma, permisoPosGuardia } = req.body;
   
       const pool = await getConnection();
@@ -100,6 +104,7 @@ export const serviceAddNew = async(req, res = response) => {
 export const serviceUpdateById = async(req, res = response) => {
 
   try {
+
       const { servicio, servicioDependenciaID, sinCronograma, permisoPosGuardia } = req.body;
 
       const { id } = req.params;
@@ -140,6 +145,7 @@ export const serviceUpdateById = async(req, res = response) => {
 export const serviceDeleteById = async(req, res = response) => {
 
   try {
+      
       const { id } = req.params;
 
       const consult = await validatorService(id);

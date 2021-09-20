@@ -18,9 +18,15 @@ const router = Router();
 
 router.use( validateJWT );
 
-router.get("/holiday",holidayGetAll);
+router.get(
+  "/holiday",
+  [
+    check('anio', 'El año es obligatorio').not().isEmpty(),
 
-//router.get("/category/:id", categoryGetById);
+    validatorField
+  ],
+  holidayGetAll
+);
 
 router.post(
   "/holiday/new",

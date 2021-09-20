@@ -4,6 +4,7 @@ import { queries } from '../database/querys';
 
 
 export const categoryGetAll = async (req, res = response) => {
+
   try {
       const pool = await getConnection();
   
@@ -28,6 +29,7 @@ export const categoryGetAll = async (req, res = response) => {
 export const categoryGetById = async(req, res = response) => {
   
   try {
+
       const id = req.params.id;
 
       const pool = await getConnection();
@@ -41,7 +43,7 @@ export const categoryGetById = async(req, res = response) => {
       if ( !recordset ) {
           return res.status(404).json({
               ok: false,
-              msg: 'La categoria no extiste'
+              msg: 'No extisten registros'
           });
       }
 
@@ -62,6 +64,7 @@ export const categoryGetById = async(req, res = response) => {
 export const categoryAddNew = async(req, res = response) => {
 
   try {
+
       const { categoria, descripcion } = req.body;
   
       const pool = await getConnection();
@@ -97,6 +100,7 @@ export const categoryAddNew = async(req, res = response) => {
 export const categoryUpdateById = async(req, res = response) => {
 
   try {
+
       const { descripcion } = req.body;
 
       const { id } = req.params;
@@ -134,6 +138,7 @@ export const categoryUpdateById = async(req, res = response) => {
 export const categoryDeleteById = async(req, res = response) => {
 
   try {
+      
       const { id } = req.params;
 
       const pool = await getConnection();
