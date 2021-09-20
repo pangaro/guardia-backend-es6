@@ -1,16 +1,16 @@
 /*
-Rutas de category
-host + api/category
+Rutas de holiday
+host + api/holiday
 */
 import { Router } from "express";
 import { check } from 'express-validator';
 import {
-  categoryGetAll,
-  categoryAddNew,
-  categoryGetById,
-  categoryUpdateById,
-  categoryDeleteById,
-} from "../controllers/category";
+  holidayAddNew,
+  holidayGetAll,
+  //categoryGetById,
+  holidayUpdateById,
+  holidayDeleteById,
+} from "../controllers/holiday";
 import { validateJWT } from '../middlewares/validateJWT';
 import { validatorField } from '../middlewares/validatorField';
 
@@ -18,29 +18,30 @@ const router = Router();
 
 router.use( validateJWT );
 
-router.get("/category", categoryGetAll);
+router.get("/holiday",holidayGetAll);
 
-router.get("/category/:id", categoryGetById);
+//router.get("/category/:id", categoryGetById);
 
 router.post(
-  "/category/new",
+  "/holiday/new",
   [
-    check('categoria', 'La categoria es obligatoria').not().isEmpty(),
+    check('fecha', 'La fecha es obligatoria').not().isEmpty(),
     check('descripcion', 'La descripción es obligatoria').not().isEmpty(),
     validatorField
   ],
-  categoryAddNew
+  holidayAddNew
 );
 
 router.put(
-  "/category/:id",
+  "/holiday/:id",
   [
+    check('fecha', 'La fecha es obligatoria').not().isEmpty(),
     check('descripcion', 'La descripción es obligatoria').not().isEmpty(),
     validatorField
 ],
-  categoryUpdateById
+    holidayUpdateById
 );
 
-router.delete("/category/:id", categoryDeleteById);
+router.delete("/holiday/:id", holidayDeleteById);
 
 export default router;

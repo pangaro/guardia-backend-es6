@@ -8,4 +8,21 @@ export const queries = {
 
   /////Login////////////////
   userValidate: 'GUA_USU_ValidarUsuario_Cons_sp',
+
+  /////Servicio////////////////
+  serviceAddNew: 'SP_GUA_Servicio_Alta',
+  serviceGetAll: 'SP_GUA_Servicio_Cons',
+  serviceUpdateById: 'SP_GUA_Servicio_Modi',
+  serviceDeleteById: 'SP_GUA_Servicio_Baja',
+  serviceQueryDeleteById: 'SP_GUA_ServicioConsultarBaja_Cons', 
+
+  /////Feriado////////////////
+  holidayAddNew: 'SP_GUA_Feriado_Alta',
+  holidayGetAll: 'SP_GUA_Feriado_DOS_Cons',
+  holidayUpdateById: 'SP_GUA_Feriado_Modi',
+  holidayDeleteById: 'SP_GUA_Feriado_Baja',
+
+  /////Dia Presentacion////////////////
+  presentationDayGetAll: 'SP_GUA_GuardiaModalidad2_Cons',
+  presentationDayUpdateById: 'SP_GUA_GuardiaModalidad_Modi',
 };

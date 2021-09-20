@@ -41,7 +41,7 @@ export const userLogin = async(req, res = response) => {
 
             res.status(200).json({
                 ok: true,
-                name : username,
+                username : username,
                 token
             });         
         }
@@ -55,10 +55,14 @@ export const userLogin = async(req, res = response) => {
     }
 }
 
-export const userToken = (req, res = response) => {
-    // res.send('Hello World')
+export const userToken = async(req, res = response) => {
+
+    const { username } = req.username;
+
+    const token = await generateJWT(username);
+
     res.json({
         ok: true,
-        msg: 'renew'
+        token
     })
 }

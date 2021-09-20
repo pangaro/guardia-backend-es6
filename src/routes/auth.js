@@ -8,7 +8,8 @@ import {
   userLogin,
   userToken,
 } from "../controllers/auth";
-const { validatorField } = require('../middlewares/validatorField');
+import { validateJWT } from '../middlewares/validateJWT';
+import { validatorField } from '../middlewares/validatorField';
 
 const router = Router();
 
@@ -24,10 +25,7 @@ router.post(
     userLogin );
 
 
-router.post(
-    '/renew',
-    [],
-    userToken );
-
+router.get(
+    '/renew', validateJWT, userToken );
 
 export default router;
