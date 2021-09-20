@@ -46,23 +46,19 @@ export const categoryAmountAddNew = async(req, res = response) => {
 
     try {
 
-      const { categoria, descripcion } = req.body;
-  
+      const { categoria, anio, modalidadHorariaID, diasServicioID, guardiaTipoID, monto, usuario } = req.body;
+
       const pool = await getConnection();
     
-      const result = await pool.request()
+      await pool.request()
           .input("categoria", categoria)
-          .input("descripcion", descripcion)
+          .input("anio", anio)
+          .input("modalidadHorariaID", modalidadHorariaID)
+          .input("diasServicioID", diasServicioID)
+          .input("guardiaTipoID", guardiaTipoID)
+          .input("monto", monto)
+          .input("usuario", usuario)
           .execute(queries.categoryAmountAddNew);
-
-      const { Resultado:resultado } = result.recordset[0];
-
-      if ( resultado === 0) {
-          return res.status(303).json({
-              ok: false,
-              msg: 'La categoria ya existe'
-          });
-      }
 
       res.status(201).json({
         ok: true,

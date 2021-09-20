@@ -30,7 +30,11 @@ router.post(
   "/categoryAmount/new",
   [
     check('categoria', 'La categoria es obligatoria').not().isEmpty(),
-    check('descripcion', 'La descripción es obligatoria').not().isEmpty(),
+    check('anio', 'El año es obligatorio').not().isEmpty(),
+    check('modalidadHorariaID', 'La modalidad horaria es obligatoria').not().isEmpty(),
+    check('diasServicioID', 'El dia servicio es obligatorio').not().isEmpty(),
+    check('guardiaTipoID', 'La guardia tipo es obligatoria').not().isEmpty(),
+    check('monto', 'El monto es obligatorio').not().isEmpty(),
     validatorField
   ],
   categoryAmountAddNew
