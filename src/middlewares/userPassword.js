@@ -15,7 +15,6 @@ export function decryptext(strText) {
       }
       buf.push(code);// > 255 ? 32 : code);
     }
-    //console.log(buf)
     return buf;  
 }
 
