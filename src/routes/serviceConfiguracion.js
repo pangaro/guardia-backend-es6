@@ -3,6 +3,7 @@ import { check } from 'express-validator';
 import {
   serviceGetAll,
   serviceAddNew,
+  //categoryGetId,
   serviceUpdateById,
   serviceDeleteById,
 } from "../controllers/service";
@@ -14,6 +15,8 @@ const router = Router();
 router.use( validateJWT );
 
 router.get("/service", serviceGetAll);
+
+//router.get("/category/:id", categoryGetId);
 
 router.post(
   "/service/new",

@@ -35,15 +35,13 @@ router.post(
     check('diasServicioID', 'El dia servicio es obligatorio').not().isEmpty(),
     check('guardiaTipoID', 'La guardia tipo es obligatoria').not().isEmpty(),
     check('monto', 'El monto es obligatorio').not().isEmpty(),
+    check('usuario', 'El usuario es obligatorio').not().isEmpty(),
     validatorField
   ],
   categoryAmountAddNew
 );
 
-router.put(
-  "/categoryAmount/:id",
-  categoryAmountUpdateById
-);
+router.put("/categoryAmount/:id", categoryAmountUpdateById);
 
 router.delete("/categoryAmount/:id", categoryAmountDeleteById);
 
