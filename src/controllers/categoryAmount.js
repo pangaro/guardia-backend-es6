@@ -23,7 +23,7 @@ export const categoryAmountGetAll = async (req, res = response) => {
       if ( recordset.length === 0 ) {
         return res.status(404).json({
             ok: false,
-            msg: 'No extisten registros para este período'
+            msg: 'No extisten registros'
         });
     }
 

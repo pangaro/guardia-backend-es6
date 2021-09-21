@@ -24,6 +24,28 @@ export const queries = {
   serviceDeleteById: 'SP_GUA_Servicio_Baja',
   serviceQueryDeleteById: 'SP_GUA_ServicioConsultarBaja_Cons', 
 
+  /////Servicio////////////////
+  serviceEmployeeAddNew: 'SP_GUA_EmpleadoServicio_Alta',
+  serviceEmployeeGetById: 'SP_GUA_EmpleadoServicio_DOS_Cons', //2do parametro false
+  serviceEmployeeUpdateById: 'SP_GUA_EmpleadoServicio_Modi',
+  serviceEmployeeDeleteById: 'SP_GUA_EmpleadoServicio_Baja',
+
+  /////Servicio Seguridad////////////////
+  securityServiceAddNew: 'SP_GUA_UsuarioServicio_Alta',
+  securityServiceGetById: 'SP_GUA_UsuarioServicio_Cons',
+  securityServiceUpdateById: 'SP_GUA_UsuarioServicio_Modi',
+  securityServiceDeleteById: 'SP_GUA_UsuarioServicio_Baja',
+
+  /////Servicio Configuracion////////////////
+  serviceConfigurationAddNew: 'SP_GUA_ServicioConfiguracion_Alta',
+  serviceConfigurationGetById: 'SP_GUA_ServicioConfiguracion_cons',
+  serviceConfigurationUpdateById: 'SP_GUA_ServicioConfiguracion_Modi',
+  serviceConfigurationDeleteById: 'SP_GUA_ServicioConfiguracion_Baja',
+  serviceTurnAddNew: 'SP_GUA_TurnoServicio_Alta',
+  serviceTurnGetById: 'SP_GUA_TurnoServicio_Cons',
+  srviceTurnUpdateById: 'SP_GUA_TurnoServicio_Modi',
+  serviceTurnDeleteById: 'SP_GUA_TurnoServicio_Baja',
+
   /////Feriado////////////////
   holidayAddNew: 'SP_GUA_Feriado_Alta',
   holidayGetAll: 'SP_GUA_Feriado_DOS_Cons',

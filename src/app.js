@@ -5,6 +5,8 @@ import morgan from "morgan";
 import auth from './routes/auth';
 import category from "./routes/category";
 import service from './routes/service';
+import serviceEmployee from './routes/serviceEmployee';
+import securityService from './routes/securityService';
 import holiday from './routes/holiday';
 import presentatitonDay from './routes/presentatitonDay';
 import categoryAmount from './routes/categoryAmount'
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use("/api/auth", auth);
 app.use("/api", category);
 app.use("/api", service);
+app.use("/api", serviceEmployee);
+app.use("/api", securityService);
 app.use("/api", holiday);
 app.use("/api", presentatitonDay);
 app.use("/api", categoryAmount);

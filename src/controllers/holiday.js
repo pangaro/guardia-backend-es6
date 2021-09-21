@@ -23,7 +23,7 @@ export const holidayGetAll = async (req, res = response) => {
         if ( !recordset ) {
             return res.status(404).json({
                 ok: false,
-                msg: 'No extisten registros para este período'
+                msg: 'No extisten registros'
             });
         }
 
