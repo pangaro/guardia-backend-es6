@@ -67,7 +67,14 @@ export const serviceAddNew = async(req, res = response) => {
 
   try {
 
-      const { servicio, servicioDependenciaID, sinCronograma, permisoPosGuardia } = req.body;
+      const {
+          servicio,
+          servicioDependenciaID,
+          sinCronograma,
+          permisoPosGuardia,
+          porTurno,
+          username
+      } = req.body;
   
       const pool = await getConnection();
     
@@ -76,6 +83,8 @@ export const serviceAddNew = async(req, res = response) => {
           .input("servicioDependenciaID", servicioDependenciaID)
           .input("sinCronograma", sinCronograma)
           .input("permisoGuardia", permisoPosGuardia)
+          .input("porTurno", porTurno)
+          .input("username", username)
           .execute(queries.serviceAddNew);
 
       const { Resultado:resultado } = result.recordset[0];
@@ -105,7 +114,14 @@ export const serviceUpdateById = async(req, res = response) => {
 
   try {
 
-      const { servicio, servicioDependenciaID, sinCronograma, permisoPosGuardia } = req.body;
+      const {
+          servicio,
+          servicioDependenciaID,
+          sinCronograma,
+          permisoPosGuardia,
+          porTurno,
+          username
+      } = req.body;
 
       const { id } = req.params;
 
@@ -117,6 +133,8 @@ export const serviceUpdateById = async(req, res = response) => {
           .input("servicioDependenciaID", servicioDependenciaID)
           .input("sinCronograma", sinCronograma)
           .input("permisoGuardia", permisoPosGuardia)
+          .input("porTurno", porTurno)
+          .input("username", username)
           .execute(queries.serviceUpdateById);
 
       const { Resultado:resultado } = result.recordset[0];

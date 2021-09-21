@@ -24,7 +24,7 @@ export const queries = {
   serviceDeleteById: 'SP_GUA_Servicio_Baja',
   serviceQueryDeleteById: 'SP_GUA_ServicioConsultarBaja_Cons', 
 
-  /////Servicio////////////////
+  /////Servicio Empelado////////////////
   serviceEmployeeAddNew: 'SP_GUA_EmpleadoServicio_Alta',
   serviceEmployeeGetById: 'SP_GUA_EmpleadoServicio_DOS_Cons', //2do parametro false
   serviceEmployeeUpdateById: 'SP_GUA_EmpleadoServicio_Modi',

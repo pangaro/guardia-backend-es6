@@ -20,6 +20,7 @@ router.post(
   [
     check('servicio', 'El servicio es obligatorio').not().isEmpty(),
     check('servicioDependenciaID', 'La Dependencia es obligatoria').not().isEmpty(),
+    check('username', 'El username es obligatorio').not().isEmpty(),
     validatorField
   ],
   serviceAddNew
@@ -30,6 +31,7 @@ router.put(
   [
     check('servicio', 'El servicio es obligatorio').not().isEmpty(),
     check('servicioDependenciaID', 'La Dependencia es obligatoria').not().isEmpty(),
+    check('username', 'El username es obligatorio').not().isEmpty(),
     validatorField
 ],
 serviceUpdateById
