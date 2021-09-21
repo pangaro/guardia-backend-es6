@@ -1,43 +1,40 @@
+/*
+Rutas de serviceConfiguration
+host + api/serviceConfiguration
+*/
 import { Router } from "express";
 import { check } from 'express-validator';
 import {
-  serviceGetAll,
-  serviceAddNew,
-  //categoryGetId,
-  serviceUpdateById,
-  serviceDeleteById,
-} from "../controllers/service";
+  serviceConfigurationAddNew,
+  serviceConfigurationGetById,
+  serviceConfigurationUpdateById,
+  serviceConfigurationDeleteById,
+} from "../controllers/serviceConfiguracion";
 import { validateJWT } from '../middlewares/validateJWT';
-import { validatorField } from '../middlewares/validatorField'
+import { validatorField } from '../middlewares/validatorField';
 
 const router = Router();
 
 router.use( validateJWT );
 
-router.get("/service", serviceGetAll);
-
-//router.get("/category/:id", categoryGetId);
+router.get("/serviceConfiguration/:id", serviceConfigurationGetById);
 
 router.post(
-  "/service/new",
+  "/serviceConfiguration/new",
   [
-    check('servicio', 'El servicio es obligatorio').not().isEmpty(),
-    check('servicioDependenciaID', 'La Dependencia es obligatoria').not().isEmpty(),
+    check('servicioId', 'servicio es obligatorio').not().isEmpty(),
+    check('guardiaTipoId', 'guardia tipo es obligatorio').not().isEmpty(),
+    check('diasServicioId', 'dia servicio es obligatorio').not().isEmpty(),
+    check('modalidadHorariaId', 'modalidad horaria es obligatoria').not().isEmpty(),
+    check('guardiasPorDia', 'guardias por dia es obligatorio').not().isEmpty(),
+    check('username', 'username es obligatorio').not().isEmpty(),
     validatorField
   ],
-  serviceAddNew
+  serviceConfigurationAddNew
 );
 
-router.put(
-  "/service/:id",
-  [
-    check('servicio', 'El servicio es obligatorio').not().isEmpty(),
-    check('servicioDependenciaID', 'La Dependencia es obligatoria').not().isEmpty(),
-    validatorField
-],
-serviceUpdateById
-);
+router.put("/serviceConfiguration/:id", serviceConfigurationUpdateById);
 
-router.delete("/service/:id", serviceDeleteById);
+router.delete("/serviceConfiguration/:id", serviceConfigurationDeleteById);
 
 export default router;
