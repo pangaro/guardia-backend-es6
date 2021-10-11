@@ -7,7 +7,6 @@ import { validatorService } from '../middlewares/validatorService'
 export const serviceGetAll = async (req, res = response) => {
 
   try {
-
       const pool = await getConnection();
   
       const result = await pool.request()

@@ -57,12 +57,12 @@ export const userLogin = async(req, res = response) => {
 
 export const userToken = async(req, res = response) => {
 
-    const { username } = req.username;
+    const { username } = req;
 
     const token = await generateJWT(username);
-
     res.json({
         ok: true,
+        username:username,
         token
     })
 }
