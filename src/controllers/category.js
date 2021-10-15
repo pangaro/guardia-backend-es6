@@ -35,7 +35,7 @@ export const categoryGetById = async(req, res = response) => {
       const pool = await getConnection();
   
       const result = await pool.request()
-          .input("categoria", id)
+          .input("Categoria", id)
           .execute(queries.categoryGetById);
       
       const recordset  = result.recordset[0];
@@ -62,7 +62,7 @@ export const categoryGetById = async(req, res = response) => {
 }
 
 export const categoryAddNew = async(req, res = response) => {
-
+    console.log(req.body)
   try {
 
       const { categoria, descripcion } = req.body;
@@ -101,7 +101,7 @@ export const categoryUpdateById = async(req, res = response) => {
 
   try {
 
-      const { descripcion } = req.body;
+      const { Descripcion } = req.body;
 
       const { id } = req.params;
 
